@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #060852;
+}
+
+.blue-heading {
+  color: #e6eaee;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.rhombus-btn {
+  width: 100px;
+  height: 50px;
+  background: transparent;
+  color: #eeede9;
+  border: 3px solid #bd9523;
+  margin: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transform: skew(-20deg);
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+
+.rhombus-btn:hover {
+  background: #1976d2;
+  color: #fff;
+}
+
+.rhombus-btn span {
+  display: inline-block;
+  transform: skew(20deg);
+}
+
+.rhombus-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: auto;
+}

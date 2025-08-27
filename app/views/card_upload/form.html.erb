@@ -1,0 +1,9 @@
+<%= form_with url: card_upload_path, multipart: true, local: true do |form| %>
+  <div class="blue-heading">
+    <%= form.label :image, "Upload Image"%>
+    <%= form.file_field :image %>
+  </div>
+  <div class="upload-container">
+    <%= form.submit "Upload", class: "upload-btn" %>
+  </div>
+  <% end %>

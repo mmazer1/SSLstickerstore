@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <header>
+    <h1 class="blue-heading">
+      Welcome to the Sticker Store
+    </h1>
+  </header>
+  <body>
+    <div class="rhombus-container">
+      <%= link_to 'Card Upload', card_upload_path, class: 'rhombus-btn' %>
+      <%= link_to 'Button 2', '#', class: 'rhombus-btn' %>
+      <%= link_to 'Button 3', '#', class: 'rhombus-btn' %>
+      <%= link_to 'Button 4', '#', class: 'rhombus-btn' %>
+    </div>
+    <div style="position: fixed; top: 0; right: 0; height: 100vh; display: flex; align-items: flex-end;">
+      <%= image_tag("Side_bar_graphic.jpg", alt: "sticker graphic") %>
+    </div>
+
+  </body>
+</html>
