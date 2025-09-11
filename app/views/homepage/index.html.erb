@@ -1,23 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <header>
-    <h1 class="blue-heading">
-      Welcome to the Sticker Store
-    </h1>
-  </header>
+  <header class="w-full flex flex-col items-center mb-8 relative z-10">
+  <div class="flex items-center justify-center w-full">
+    <!-- Left buttons -->
+    <div class="flex">
+      <%= link_to 'Card Upload', card_upload_path, class: 'w-56 px-0 py-2 rounded-l-full text-white font-bold shadow hover:bg-[#a4841f] transition border-2 border-[#BD9523] text-center' %>
+      <%= link_to 'Button 2', '#', class: 'w-56 px-0 py-2 text-white font-bold shadow hover:bg-[#a4841f] transition border-y-2 border-[#BD9523] text-center' %>
+    </div>
+    <!-- Center logo (no border, no margin) -->
+    <div class="flex items-center">
+      <%= image_tag("league-logo.png",
+        alt: "SSL League Logo",
+        class: "h-16 w-16 rounded-full bg-[#BD9523] object-cover shadow m-0 p-0",
+        style: "width: 150px; height: 150px; object-fit: cover; border-radius: 2px5px; border: 4px solid #BD9523")
+        %>
+    </div>
+    <!-- Right buttons -->
+    <div class="flex">
+      <%= link_to 'testtestestestestest', '#', class: 'w-56 px-0 py-2 text-white font-bold shadow hover:bg-[#a4841f] transition border-y-2 border-[#BD9523] text-center' %>
+      <%= link_to 'Button 4', '#', class: 'w-56 px-0 py-2 rounded-r-full text-white font-bold shadow hover:bg-[#a4841f] transition border-2 border-[#BD9523] text-center' %>
+    </div>
+  </div>
+</header>
   <body>
-    <div class="rhombus-container">
-      <%= link_to 'Card Upload', card_upload_path, class: 'rhombus-btn' %>
-      <%= link_to 'Button 2', '#', class: 'rhombus-btn' %>
-      <%= link_to 'Button 3', '#', class: 'rhombus-btn' %>
-      <%= link_to 'Button 4', '#', class: 'rhombus-btn' %>
-    </div>
-    <div style="position: fixed; top: 0; right: 0; height: 100vh; display: flex; align-items: flex-end;">
-      <%= image_tag("Side_bar_graphic.jpg", alt: "sticker graphic") %>
-    </div>
+  <div class="bg-red 500 text-white p-4">
+    Test color
+  </div>
 
-  </body>
-</html>
+</body>

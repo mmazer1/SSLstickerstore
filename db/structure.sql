@@ -100,12 +100,12 @@ DROP TABLE IF EXISTS `versions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `versions` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `whodunnit` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `whodunnit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
   `item_id` bigint NOT NULL,
-  `item_type` varchar(191) COLLATE utf8mb4_general_ci NOT NULL,
-  `event` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `object` longtext COLLATE utf8mb4_general_ci,
+  `item_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `object` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`),
   KEY `index_versions_on_item_type_and_item_id` (`item_type`,`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
