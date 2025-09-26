@@ -1,6 +1,6 @@
 module UuidHelper
   def self.initialize(base)
-    base.primary_key = 'uuid'
+    base.primary_key = "uuid"
     base.before_create :assign_uuid
   end
 

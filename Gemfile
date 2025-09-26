@@ -67,14 +67,14 @@ group :test do
   gem "selenium-webdriver"
 end
 
-#Paper Trail
-gem 'paper_trail'
+# Paper Trail
+gem "paper_trail"
 
-#.env file
-gem 'dotenv-rails', groups: [:development, :test]
+# .env file
+gem "dotenv-rails", groups: [ :development, :test ]
 
 # For UUID primary keys
-gem 'uuidtools'
+gem "uuidtools"
 
-# CDN 
-gem 'cloudinary'
+# CDN
+gem "cloudinary"

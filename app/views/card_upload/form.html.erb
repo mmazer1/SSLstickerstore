@@ -1,9 +1,174 @@
-<%= form_with url: card_upload_path, multipart: true, local: true do |form| %>
-  <div class="blue-heading">
-    <%= form.label :image, "Upload Image"%>
-    <%= form.file_field :image %>
-  </div>
-  <div class="upload-container">
-    <%= form.submit "Upload", class: "upload-btn" %>
+<header class="w-full flex flex-col items-center mb-8 relative z-10">
+  <h1 class="text-4xl font-bold text-center" style="color: #BD9523;">
+    UPLOAD STICKERS
+  </h1>
+</header>
+
+
+<%= form_with url: card_upload_path, multipart: true, local: true, html: { data: { controller: "card-upload" } } do |form| %>
+
+
+  <div class="flex flex-col items-center gap-4 bg-white p-6 rounded shadow" style="background-color: #BD9523;">
+
+
+    <div class="flex flex-col items-center">
+
+
+      <%= form.label :image, "Upload Image", class: "block font-semibold mb-1" %>
+
+
+      <%= form.file_field :image, id: "image_input", data: { card_upload_target: "input", action: "change->card-upload#previewImage" }, class: "block" %>
+
+
+      <div class="flex justify-center w-full">
+
+
+        <img id="image_preview" src="#" alt="Preview" style="display:none;" class="mt-2 max-w-xs max-h-84 rounded border shadow" data-card-upload-target="preview"/>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="flex flex-row gap-4 w-full justify-center">
+
+
+      <div>
+
+
+        <%= form.label :name, "Card Name", class: "block font-semibold mb-1" %>
+
+
+        <%= form.text_field :name, class: "border rounded px-2 py-1 w-40" %>
+
+
+      </div>
+
+
+      <div>
+
+
+        <%= form.label :rarity, "Card Rarity", class: "block font-semibold mb-1" %>
+
+
+        <%= form.text_field :rarity, class: "border rounded px-2 py-1 w-40" %>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div>
+
+
+      <%= form.submit "Upload", class: "upload-btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition" %>
+
+
+    </div>
+
   </div>
   <% end %>
+
+
+
+
+
+  <div class="absolute top-0 right-0 h-full pointer-events-none z-0">
+
+
+    <%= image_tag("Side_bar_graphic.jpg", alt: "sticker graphic", class: "object-contain h-full w-full") %>
+
+  </div>
+
+
+
+
+<h2 class="mt-8 text-xl font-bold text-center">Recent Uploads</h2>
+
+
+<div class="overflow-x-auto mt-4">
+
+
+  <table class="min-w-full divide-y divide-gray-200 bg-white rounded shadow" style="background-color: #ffffffff;">
+
+
+    <thead class="bg-gray-100">
+
+
+      <tr>
+
+
+        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Image</th>
+
+
+        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+
+
+        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Rarity</th>
+
+
+        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Uploaded</th>
+
+
+      </tr>
+
+
+    </thead>
+
+
+    <tbody class="divide-y divide-gray-200">
+
+
+      <% @recent_uploads&.each do |upload| %>
+
+
+        <tr class="align-middle">
+
+
+          <td class="px-4 py-2">
+
+
+            <div class="flex items-center justify-center">
+
+
+              <img src="<%= upload.image_url %>" class="w-20 h-20 object-contain rounded shadow border" alt="Card image" />
+
+
+            </div>
+
+
+          </td>
+
+
+          <td class="px-4 py-2 align-middle"><%= upload.name %></td>
+
+
+          <td class="px-4 py-2 align-middle"><%= upload.rarity %></td>
+
+
+          <td class="px-4 py-2 text-gray-500 align-middle">
+
+
+            <%= time_ago_in_words(upload.created_at) %> ago
+
+
+          </td>
+
+
+        </tr>
+
+
+      <% end %>
+
+
+    </tbody>
+
+
+  </table>
+
+
+</div>

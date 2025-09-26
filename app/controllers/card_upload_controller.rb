@@ -1,16 +1,20 @@
 class CardUploadController < ApplicationController
+  helper ActionView::Helpers::DateHelper
+
   def form
+    # @recent_uploads = CardUpload.order(created_at: :desc).limit(5)
   end
 
   def create
     uploaded_file = params[:image]
-    # Handle the uploaded file (e.g., save to disk or attach to a model)
-    # Example: save to /tmp
-    if uploaded_file
-      CardUpload.new(image: uploaded_file)
-      CardUpload.process(uploaded_file)
+    name = params[:name]
+    rarity = params[:rarity]
+    if uploaded_file && name.present? && rarity.present?
+      card_upload = CardUpload.new(uuid: SecureRandom.uuid, name: name, rarity: rarity, image: uploaded_file)
+      card_upload.save!
+      flash[:notice] = "Upload successful!"
     else
-      flash[:alert] = "No file selected."
+      flash[:alert] = "Please complete all fields."
     end
     redirect_to card_upload_path
   end
